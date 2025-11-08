@@ -1,11 +1,11 @@
 # Unc - Uncovr CLI
 
-A command-line tool for scaffolding Uncovr web applications.
+A command-line tool for Uncovr.
 
 ## Installation
 
 ```bash
-cargo install --path .
+cargo install unc
 ```
 
 ## Quick Start
@@ -55,62 +55,10 @@ Run the project with cargo-watch for hot reloading.
 unc dev
 ```
 
-This command automatically installs cargo-watch if not present.
+### help
 
-## Templates
+Display help information.
 
-Templates are fetched from GitHub repositories. The default repository is `erickweyunga/uncovr-templates`.
-
-### Template Structure
-
-```
-repo/
-├── default/
-│   ├── Cargo.toml
-│   ├── src/
-│   └── ...
-├── api/
-│   ├── Cargo.toml
-│   └── ...
-```
-
-### Placeholders
-
-Use `{{project_name}}` in your template files. It will be replaced with the actual project name.
-
-Example:
-```rust
-fn main() {
-    println!("Welcome to {{project_name}}!");
-}
-```
-
-## Project Name Rules
-
-- Must start with a letter
-- Can contain letters, numbers, hyphens, and underscores
-- No spaces or special characters
-
-Valid: `my-app`, `my_app`, `myApp`
-Invalid: `123app`, `my app`, `@app`
-
-## Development
-
-Build:
 ```bash
-cargo build --release
+unc help
 ```
-
-Test:
-```bash
-cargo test
-```
-
-Check code:
-```bash
-cargo check
-```
-
-## License
-
-MIT

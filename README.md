@@ -8,93 +8,108 @@ A command-line tool for scaffolding Uncovr web applications.
 cargo install --path .
 ```
 
-Or install from crates.io (once published):
+## Quick Start
+
+Create a new project:
 
 ```bash
-cargo install unc
-```
-
-## Usage
-
-### Create a New Application
-
-```bash
-# Create a new app with the default template
 unc create-app my-app
-
-# Create from a specific template
-unc create-app my-app --template default
-
-# Create from a custom repository
-unc create-app my-app --repo yourusername/your-templates
-
-# Use a specific branch
-unc create-app my-app --branch develop
+cd my-app
+cargo watch -x run
 ```
 
-### Options
+Run existing project with hot reload:
 
-- `name` - Name of your application (required)
-- `--template, -t` - Template to use (default: "default")
-- `--repo, -r` - GitHub repository (default: "erickweyunga/uncovr-templates")
-- `--branch, -b` - Git branch to use (default: "main")
+```bash
+unc dev
+```
+
+## Commands
+
+### create-app
+
+Create a new application from a template.
+
+```bash
+unc create-app <name> [options]
+```
+
+**Options:**
+- `-t, --template <name>` - Template to use (default: "default")
+- `-r, --repo <repo>` - GitHub repository (default: "erickweyunga/uncovr-templates")
+- `-b, --branch <branch>` - Branch to use (default: "main")
+
+**Examples:**
+
+```bash
+unc create-app my-app
+unc create-app my-app -t api
+unc create-app my-app -r username/my-templates -b develop
+```
+
+### dev
+
+Run the project with cargo-watch for hot reloading.
+
+```bash
+unc dev
+```
+
+This command automatically installs cargo-watch if not present.
 
 ## Templates
 
-Templates are fetched from GitHub repositories. The default repository is:
-`erickweyunga/uncovr-templates`
+Templates are fetched from GitHub repositories. The default repository is `erickweyunga/uncovr-templates`.
 
-You can create your own template repository with the following structure:
+### Template Structure
 
 ```
-your-repo/
-├── template1/
+repo/
+├── default/
 │   ├── Cargo.toml
 │   ├── src/
 │   └── ...
-├── template2/
+├── api/
 │   ├── Cargo.toml
-│   ├── src/
 │   └── ...
-└── README.md
 ```
 
 ### Placeholders
 
-Templates can use the following placeholders that will be automatically replaced:
+Use `{{project_name}}` in your template files. It will be replaced with the actual project name.
 
-- `{{project_name}}` - The name of the project
-
-## Examples
-
-```bash
-# Create a blog application
-unc create-app my-blog
-
-# Create an API server from a custom template
-unc create-app my-api --template api-only
-
-# Use a custom template repository
-unc create-app my-app --repo johndoe/rust-templates --template full-stack
+Example:
+```rust
+fn main() {
+    println!("Welcome to {{project_name}}!");
+}
 ```
+
+## Project Name Rules
+
+- Must start with a letter
+- Can contain letters, numbers, hyphens, and underscores
+- No spaces or special characters
+
+Valid: `my-app`, `my_app`, `myApp`
+Invalid: `123app`, `my app`, `@app`
 
 ## Development
 
-### Building
-
+Build:
 ```bash
 cargo build --release
 ```
 
-### Testing
-
+Test:
 ```bash
 cargo test
 ```
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+Check code:
+```bash
+cargo check
+```
 
 ## License
 

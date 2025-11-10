@@ -1,5 +1,5 @@
 [package]
-name = "wenzetu"
+name = "wenzetu-cli"
 version = "0.1.0"
 description = "Wenzetu CLI"
 edition = "2024"

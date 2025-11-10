@@ -1,7 +1,14 @@
 [package]
 name = "wenzetu"
 version = "0.1.0"
+description = "Wenzetu CLI"
 edition = "2024"
+license = "MIT"
+repository = "https://github.com/erickweyunga/wenzetu-cli"
+readme = "README.md"
+keywords = ["cli", "wenzetu-cli", "uncover-web"]
+categories = ["command-line-utilities"]
+authors = ["Erick Weyunga <erickweyunga@gmail.com>"]
 
 [[bin]]
 name = "wenzetu"
@@ -27,11 +34,3 @@ ctrlc = "3.4"
 strip = true
 lto = true
 codegen-units = 1
-
-[package.metadata.tailwind]
-tw-input = ["src/styles/tailwind.css"]
-tw-output = "public/output.css"
-tw-watch-enabled = true
-tw-watch-always = true
-tw-optimize-minify = true
-tw-optimize-map = false

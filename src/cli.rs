@@ -1,9 +1,9 @@
 use clap::{Parser, Subcommand};
 
-/// Uncovr CLI - Scaffold web applications with ease
+/// # wenzetu v0.1.0
 #[derive(Parser)]
-#[command(name = "unc")]
-#[command(about = "A CLI tool for Uncovr", long_about = None)]
+#[command(name = "wenzetu")]
+#[command(override_usage = "wenzetu <command> [options...]")]
 #[command(version)]
 pub struct Cli {
     #[command(subcommand)]

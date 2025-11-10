@@ -38,7 +38,7 @@ pub fn create_app(name: &str, template: &str, repo: Option<&str>, branch: &str) 
 
     // Download template with progress indicator
     let pb = create_progress_bar();
-    pb.set_message("Loading...");
+    pb.set_message("...");
 
     // Execute operations and cleanup on error
     let result = (|| -> Result<()> {
@@ -70,7 +70,7 @@ pub fn create_app(name: &str, template: &str, repo: Option<&str>, branch: &str) 
 
 /// Prints information about the project being created
 fn print_creation_info() {
-    println!("{}", "Setting up your project...".green().bold());
+    println!("{}", "setting up your project...".green().bold());
     println!();
 }
 
@@ -99,7 +99,7 @@ fn print_success_message(name: &str) {
     let run_cmd = get_run_command();
 
     println!();
-    println!("{}", "Project created successfully!".green().bold());
+    println!("{}", "Project created!".green().bold());
     println!();
     println!("  cd {}", name.cyan());
     println!("  {}", run_cmd);

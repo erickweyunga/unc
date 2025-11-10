@@ -1,10 +1,10 @@
 [package]
-name = "unc"
+name = "wenzetu"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [[bin]]
-name = "unc"
+name = "wenzetu"
 path = "src/main.rs"
 
 [dependencies]
@@ -13,15 +13,25 @@ anyhow = "1.0"
 reqwest = { version = "0.12", features = ["blocking", "json"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-colored = "2.1"
-indicatif = "0.17"
+colored = "3.0"
+indicatif = "0.18.2"
 regex = "1.10"
 walkdir = "2.4"
 tar = "0.4"
 flate2 = "1.0"
 tempfile = "3.8"
+toml = "0.9.8"
+ctrlc = "3.4"
 
 [profile.release]
 strip = true
 lto = true
 codegen-units = 1
+
+[package.metadata.tailwind]
+tw-input = ["src/styles/tailwind.css"]
+tw-output = "public/output.css"
+tw-watch-enabled = true
+tw-watch-always = true
+tw-optimize-minify = true
+tw-optimize-map = false
